@@ -1,6 +1,6 @@
 # mo_hinh_n_layer
 # codebase project xây dựng theo kiến trúc n layer
-dependency injection, repository partten
+dependency injection, repository partten, unit of work, entity framework, linq
 
 # tạo database từ đầu
 - xóa các file gen trong folder migration. Chọn defualt project Data, rồi chạy command bên dưới.
