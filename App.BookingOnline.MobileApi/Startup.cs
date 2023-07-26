@@ -208,7 +208,7 @@ namespace App.BookingOnline.MobileApi
                 options.OperationFilter<AuthorizeCheckOperationFilter>();
             });
 
-            services.AddAutoMapper(typeof(Startup));
+            //services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

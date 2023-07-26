@@ -1,17 +1,8 @@
-using AutoMapper;
-using App.BookingOnline.Api.Validators;
-using App.BookingOnline.Api.ViewModels;
 using App.Core.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using App.BookingOnline.Service;
-using App.BookingOnline.Service.DTO;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using App.Core;
-using System;
-using App.BookingOnline.Data.Identity;
 using System.Linq;
 
 namespace App.BookingOnline.Api.Controllers

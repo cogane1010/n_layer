@@ -146,7 +146,7 @@ namespace App.BookingOnline.Api
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "Booking web", Version = "v1" });
             });
 
-            services.AddAutoMapper(typeof(Startup));
+            //services.AddAutoMapper(typeof(Startup));
 
             services.Configure<FormOptions>(o =>
             {

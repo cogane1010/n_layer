@@ -1,7 +1,6 @@
 using App.Core.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using App.BookingOnline.Service.Base;
 using App.Core.Service;
 
 namespace App.BookingOnline.Api.Controllers
@@ -27,8 +26,7 @@ namespace App.BookingOnline.Api.Controllers
             catch(Exception e)
             {
                 return Failure("",e.Message);
-            }
-            
+            }            
         }
 
         [HttpPost("GetAll")]
@@ -41,8 +39,7 @@ namespace App.BookingOnline.Api.Controllers
             catch (Exception e)
             {
                 return Failure("",e.Message);
-            }
-            
+            }            
         }
 
         [HttpPost("AddOrEdit")]
@@ -69,8 +66,7 @@ namespace App.BookingOnline.Api.Controllers
             catch (Exception e)
             {
                 return Failure("",e.Message);
-            }
-           
+            }           
         }
 
         [HttpPost("Delete")]
@@ -84,8 +80,7 @@ namespace App.BookingOnline.Api.Controllers
             catch (Exception e)
             {
                 return Failure("",e.Message);
-            }
-            
+            }            
         }
     }
 
