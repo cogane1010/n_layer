@@ -16,6 +16,7 @@ namespace IdentityServer
 {
     public class Program
     {
+        [Obsolete]
         public static int Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -61,6 +62,7 @@ namespace IdentityServer
             }
         }
 
+        [Obsolete]
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog()

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace App.BookingOnline.Data
 {
-    public interface IAppUserRepository : IBaseGridRepository<Customer, UserPagingModel>
+    public interface IAppUserRepository : IBaseGridRepository<AppUser, UserPagingModel>
     {
         ValueTask<IEnumerable<AspRole>> GetRolesExample();
         Task<string> GetByPhoneForLoginAsync(string phoneNumber);

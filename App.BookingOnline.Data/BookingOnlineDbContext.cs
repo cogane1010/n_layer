@@ -30,14 +30,9 @@ namespace App.BookingOnline.Data
             builder
                 .ApplyConfiguration(new MenuConfiguration());
             builder
-                .ApplyConfiguration(new SettingConfiguration());
-            //builder
-            //    .ApplyConfiguration(new RoleConfiguration());
+                .ApplyConfiguration(new SettingConfiguration());            
             builder
-                .ApplyConfiguration(new RoleMenuConfiguration());
-            //builder
-            //   .ApplyConfiguration(new UserRoleConfiguration());
-
+                .ApplyConfiguration(new RoleMenuConfiguration());         
             builder
              .ApplyConfiguration(new UploadFileConfiguration());
             #endregion

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using App.BookingOnline.Data;
+﻿using App.BookingOnline.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -136,10 +135,12 @@ namespace App.BookingOnline.Api
                .AllowAnyHeader()
                .WithExposedHeaders("Content-Disposition")));
 
+#pragma warning disable ASP5001 // Type or member is obsolete
             services.AddMvc(options =>
                 {
                     options.EnableEndpointRouting = false;
                 }).SetCompatibilityVersion(CompatibilityVersion.Latest);
+#pragma warning restore ASP5001 // Type or member is obsolete
 
             services.AddSwaggerGen(options =>
             {
@@ -188,7 +189,9 @@ namespace App.BookingOnline.Api
             app.UseHangfireDashboard("/mydashboard");
 
             app.UseAuthentication();
+#pragma warning disable MVC1005 // Cannot use UseMvc with Endpoint Routing
             app.UseMvc();
+#pragma warning restore MVC1005 // Cannot use UseMvc with Endpoint Routing
 
             app.UseStaticFiles(); // For the wwwroot folder
             app.UseStaticFiles(new StaticFileOptions()

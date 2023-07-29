@@ -1,4 +1,5 @@
 ﻿using App.BookingOnline.Data;
+using App.BookingOnline.Data.Identity;
 using App.BookingOnline.Data.MailService;
 using App.BookingOnline.Data.Models;
 using App.BookingOnline.Data.Paging;
@@ -17,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace App.BookingOnline.Service.Service.Admin
 {
-    public class AppUserService : BaseGridDataService<CustomerDTO, Customer, UserPagingModel, IAppUserRepository>
+    public class AppUserService : BaseGridDataService<CustomerDTO, AppUser, UserPagingModel, IAppUserRepository>
         , IAppUserService
     {
         private readonly IMailService _mailService;

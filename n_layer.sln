@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.BookingOnline.WebApi", "App.BookingOnline.Api\App.BookingOnline.WebApi.csproj", "{77B48EFE-5123-446D-8444-52ED821815EB}"
 EndProject
@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.BookingOnline.MobileApi", "App.BookingOnline.MobileApi\App.BookingOnline.MobileApi.csproj", "{7EA0B63F-752C-464A-B7DA-120CB8CC39D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.BookingOnline.Service", "App.BookingOnline.Service\App.BookingOnline.Service.csproj", "{83A45FEC-4BF7-4100-87FB-B1F80BCB550A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.BookingOnline.Service", "App.BookingOnline.Service\App.BookingOnline.Service.csproj", "{83A45FEC-4BF7-4100-87FB-B1F80BCB550A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C847B2B-100B-419B-B397-620B617C6CBB}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

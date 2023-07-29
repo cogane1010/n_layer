@@ -18,7 +18,7 @@ using static App.Core.Enums;
 
 namespace App.BookingOnline.Data.Repositories.Common
 {
-    public class AppUserRepository : BaseGridRepository<Customer, UserPagingModel>, IAppUserRepository
+    public class AppUserRepository : BaseGridRepository<AppUser, UserPagingModel>, IAppUserRepository
     {
         private readonly IBaseRepository<AspRole> _roleRepo;
         private readonly IBaseRepository<AppUser> _userRepo;
@@ -156,9 +156,9 @@ namespace App.BookingOnline.Data.Repositories.Common
             }
         }
 
-        public override Customer SingleOrDefault(Guid id)
+        public override AppUser SingleOrDefault(Guid id)
         {
-            var cus = _repo.SingleOrDefault(x => x.UserId == id.ToString());
+            var cus = _repo.SingleOrDefault(x => x.Id == id.ToString());
             return cus;
         }
 

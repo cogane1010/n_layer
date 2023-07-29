@@ -91,7 +91,7 @@ namespace App.BookingOnline.MobileApi
 
 
 
-            var serviceProvider = services.BuildServiceProvider();
+            ServiceProvider serviceProvider = services.BuildServiceProvider();
             var logger = serviceProvider.GetService<ILogger<AppUserRepository>>();
             services.AddSingleton(typeof(Microsoft.Extensions.Logging.ILogger), logger);
 
@@ -165,10 +165,12 @@ namespace App.BookingOnline.MobileApi
                .AllowAnyMethod()
                .AllowAnyHeader()));
 
+#pragma warning disable ASP5001 // Type or member is obsolete
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
             }).SetCompatibilityVersion(CompatibilityVersion.Latest);
+#pragma warning restore ASP5001 // Type or member is obsolete
 
             services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
                .AllowAnyMethod()
@@ -199,12 +201,11 @@ namespace App.BookingOnline.MobileApi
                             TokenUrl = new Uri($"{authUrl}/connect/token"),
                             Scopes = new Dictionary<string, string>
                                 {
-                                    {"api1", "Demo API - full access"}
+                                    {"api1", "API - full access"}
                                 }
                         }
                     }
                 });
-
                 options.OperationFilter<AuthorizeCheckOperationFilter>();
             });
 

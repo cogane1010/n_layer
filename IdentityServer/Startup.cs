@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +34,7 @@ using static IdentityModel.OidcConstants;
 using App.BookingOnline.Service.IService.Admin;
 using App.BookingOnline.Service.Service.Admin;
 using App.BookingOnline.Data.Repositories.Common;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer
 {
@@ -91,8 +91,7 @@ namespace IdentityServer
                     CookieLifetime = TimeSpan.FromHours(cookieLifetime), // ID server cookie timeout set to 10 hours
                     CookieSlidingExpiration = true
                 };
-            })
-                .AddDeveloperSigningCredential()
+            }).AddDeveloperSigningCredential()
                 // this adds the operational data from DB (codes, tokens, consents)
                 //.AddPersistedGrantStore<IPersistedGrantStore>()
                 .AddConfigurationStore(options =>
