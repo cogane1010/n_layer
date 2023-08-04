@@ -47,6 +47,7 @@ namespace IdentityServer.Data.Seed
                             Dob = DateTime.Now,
                             Name = "admin"
                         };
+                       
                         var result = userMgr.CreateAsync(admin, "Brg@123456").Result;
                         if (!result.Succeeded)
                         {

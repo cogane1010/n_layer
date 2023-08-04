@@ -169,7 +169,7 @@ namespace IdentityServerHost.Quickstart.UI
                 }
                 return new RespondData { IsSuccess = false, MsgCode = "40" };
             }
-           
+
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 // only set explicit expiration here if user chooses "remember me". 
@@ -213,7 +213,10 @@ namespace IdentityServerHost.Quickstart.UI
                         var data = serializer.Deserialize<Token>(jsonRreader);
                         data.IssuedAt = DateTime.Now;
                         data.AccessFailedCount = user.AccessFailedCount;
-                        data.AppVersion = _configuration.GetValue<string>("AndroidVersion");
+                        data.ExpiresIn = _configuration.GetValue<int>("tokenExpire");
+                        data.ExpiresAt = DateTime.Now.AddMinutes(data.ExpiresIn);
+                        data.UserRoles = await _userManager.GetRolesAsync(user) as List<string>;
+                        //data.AppVersion = _configuration.GetValue<string>("AndroidVersion");
                         data.IsForgotPass = user.IsForgotPass;
                         return new RespondData { IsSuccess = true, Data = data };
                     }
@@ -231,7 +234,7 @@ namespace IdentityServerHost.Quickstart.UI
                 };
                 if (user.AccessFailedCount == 5)
                 {
-                    
+
                 }
 
                 if (_userManager.SupportsUserLockout && await _userManager.GetLockoutEnabledAsync(user))
@@ -674,7 +677,7 @@ namespace IdentityServerHost.Quickstart.UI
             if (User?.Identity.IsAuthenticated == true)
             {
                 var idp = User.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
-                if (idp != null && idp != IdentityServer4.IdentityServerConstants.LocalIdentityProvider)
+                if (idp != null && idp != IdentityServerConstants.LocalIdentityProvider)
                 {
                     var providerSupportsSignout = await HttpContext.GetSchemeSupportsSignOutAsync(idp);
                     if (providerSupportsSignout)
@@ -713,16 +716,16 @@ namespace IdentityServerHost.Quickstart.UI
         [JsonProperty("userName")]
         public string Username { get; set; }
 
-        [JsonProperty(".issued")]
+        [JsonProperty("issued")]
         public DateTime IssuedAt { get; set; }
 
-        [JsonProperty(".expires")]
+        [JsonProperty("expire_at")]
         public DateTime ExpiresAt { get; set; }
 
-        [JsonProperty(".accessFailedCount")]
+        [JsonProperty("accessFailedCount")]
         public int AccessFailedCount { get; set; }
 
-        [JsonProperty(".otpId")]
+        [JsonProperty("otpId")]
         public Guid? OtpId { get; set; }
 
         [JsonProperty("appVersion")]
@@ -733,5 +736,8 @@ namespace IdentityServerHost.Quickstart.UI
 
         [JsonProperty("isForgotPass")]
         public bool IsForgotPass { get; set; }
+
+        [JsonProperty("userRoles")]
+        public List<string> UserRoles { get; set; }
     }
 }

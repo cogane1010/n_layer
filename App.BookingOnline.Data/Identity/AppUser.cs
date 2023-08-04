@@ -85,7 +85,7 @@ namespace App.BookingOnline.Data.Identity
     public partial class UserToken : IdentityUserToken<string>
     {
     }
-
+   
 
 
 
