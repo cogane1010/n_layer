@@ -344,3 +344,6 @@ healthchecksdb
 /App.BookingOnline.Api/logs/2023/07
 /App.BookingOnline.MobileApi/logs/2023/07
 /IdentityServer/logs/2023/07
+/App.BookingOnline.Api/logs/2023/08
+/App.BookingOnline.MobileApi/logs/2023/08
+/IdentityServer/logs/2023/08
